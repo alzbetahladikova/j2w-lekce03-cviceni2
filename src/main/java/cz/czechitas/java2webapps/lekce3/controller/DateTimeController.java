@@ -44,6 +44,9 @@ public class DateTimeController {
   public ModelAndView datum() {
     ModelAndView result = new ModelAndView("datum");
     result.addObject("datum", LocalDate.now().format(DATE_FORMATTER));
+    result.addObject ("indexact", "");
+    result.addObject ("datumact", " active");
+    result.addObject ("casact", "");
     return result;
   }
 
@@ -56,6 +59,24 @@ public class DateTimeController {
   public ModelAndView cas() {
     ModelAndView result = new ModelAndView("cas");
     result.addObject("cas", LocalDateTime.now().format(TIME_FORMATTER));
+    result.addObject ("indexact", "");
+    result.addObject ("datumact", "");
+    result.addObject ("casact", " active");
     return result;
   }
+
+  @GetMapping("/")
+  public ModelAndView index()
+  {ModelAndView result = new ModelAndView("index");
+    result.addObject ("indexact", " active");
+    result.addObject ("datumact", "");
+    result.addObject ("casact", "");
+    return result;
+
+  }
+
+
+
 }
+
+
