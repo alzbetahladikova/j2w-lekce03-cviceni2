@@ -1,5 +1,6 @@
 package cz.czechitas.java2webapps.lekce3.controller;
 
+import cz.czechitas.java2webapps.lekce3.entity.URL;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -40,9 +41,13 @@ public class DateTimeController {
    *
    * @return Sdružený objekt obsahující model a informace o view.
    */
+
+
+
   @GetMapping("/datum")
   public ModelAndView datum() {
     ModelAndView result = new ModelAndView("datum");
+   // URL url= new URL();
     result.addObject("datum", LocalDate.now().format(DATE_FORMATTER));
     result.addObject ("indexact", "");
     result.addObject ("datumact", " active");
@@ -59,6 +64,7 @@ public class DateTimeController {
   public ModelAndView cas() {
     ModelAndView result = new ModelAndView("cas");
     result.addObject("cas", LocalDateTime.now().format(TIME_FORMATTER));
+   // URL url= new URL();
     result.addObject ("indexact", "");
     result.addObject ("datumact", "");
     result.addObject ("casact", " active");
@@ -68,6 +74,7 @@ public class DateTimeController {
   @GetMapping("/")
   public ModelAndView index()
   {ModelAndView result = new ModelAndView("index");
+   // URL url= new URL();
     result.addObject ("indexact", " active");
     result.addObject ("datumact", "");
     result.addObject ("casact", "");
@@ -76,7 +83,7 @@ public class DateTimeController {
   }
 
 
-
+//potřebuji zjistit současné url a porovant s url odkazu, pokud se shodují pravda= active, pokud se nerovnají ""
 }
 
 
